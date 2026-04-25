@@ -22,7 +22,6 @@ def RegistraSet(nro):
         if equipo1.setGanados == 3:
             equipo1.partidosGanados = equipo1.partidosGanados + 1
             equipo2.partidosPerdidos = equipo2.partidosPerdidos + 1
-            # Reset de sets para nuevo partido
             equipo1.setGanados = 0
             equipo2.setGanados = 0
             return 1 
