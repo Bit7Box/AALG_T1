@@ -1,0 +1,56 @@
+PROBLEMA 2 - Complejidad Algoritmica en C#
+
+RESPUESTA 1: Calculo segun cantidad de operaciones
+==========================================================
+
+Código analizado con conteo de operaciones por línea:
+
+   if (numeros == null || numeros.Length == 0)      → 1
+       return 0;                                    → 1
+   double sumaDistancias = 0;                       → 1
+   object lockObj = new object();                   → 1
+
+   for (int i = 0; i < numeros.Length; i++){        → n
+       int normalizado = numeros[i];                → 1
+       int contador = 0;                            → 1
+
+       while (contador < 3){                        → 1
+           normalizado = Math.Abs(normalizado);     → 1
+           contador++;                              → 1
+       }
+
+       for (int j = i+1; j < numeros.Length; j++){  → n
+           double distancia = Math.Sqrt(...);       → 1
+           sumaDistancias += distancia;             → 1
+       }
+   }
+   return sumaDistancias;                           → 1
+
+========================================================
+Expresión de operaciones totales:
+
+(((1+1+1)*n+1+1+1+1+1)*n+1+1+1+1)
+(((3)*n+5)*n+4)
+O(n^2)
+reespuesta : O(n^2)
+
+
+RESPUESTA 2: Notacion Big-O correspondiente
+==========================================================
+
+Aplicando las reglas de la Notacion Big-O:
+   - Se descarta la constante: +4
+   - Se descarta el termino de menor orden: 5n
+   - Se descarta el coeficiente del termino dominante: 3
+   - El termino dominante es: n^2
+
+Por lo tanto, la complejidad algoritmica del codigo es:
+
+            O(n^2)   →   Complejidad CUADRÁTICA
+
+Conclusión:
+   El algoritmo tiene complejidad cuadratica O(n^2), producto
+   de los dos bucles anidados (for i y for j) que recorren
+   pares de elementos del arreglo. A mayor tamaño de n, el
+   tiempo de ejecución crece proporcionalmente al cuadrado de n.
+
